@@ -202,6 +202,6 @@ After decades of research comparing therapy approaches, the evidence points to a
 
 Technique matters. Training matters. Evidence-based practices matter. But without a foundation of trust, collaboration, and genuine human connection, even the most sophisticated interventions fall flat.
 
-Whether you're seeking therapy or providing it, investing in the quality of that relationship is one of the highest-leverage decisions you can make.
+Whether you're seeking therapy or providing it, investing in the quality of that relationship is one of the most consequential decisions you can make.
 
 The research is clear: therapy works best when two people genuinely connect in service of growth and healing.

@@ -44,6 +44,7 @@ never bent to fit it**.
 - ✓ Accessibility considerations
 - ✓ Mobile responsiveness
 - ✓ Proofreading for clarity
+- ✓ **No AI Slop Gate:** Run every new article, page copy, newsletter, or social caption through `.claude/skills/no-ai-slop/SKILL.md`, verify every check in `.claude/skills/no-ai-slop/eval.md`, and pass `npm run lint:copy` with zero errors.
 
 ## Key Reminders
 

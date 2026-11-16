@@ -64,8 +64,9 @@ jobs:
             1. Configure git: `git config user.name "florecer-bot"` and
                `git config user.email "bot@getflorecer.com"`. Create a new branch
                `claude/weekly-spotlight-$(date +%Y-%m-%d)` from origin/main.
-            2. Read `.claude/weekly-research-pipeline.md` and `BRAND_GUIDE.md` and
-               follow them EXACTLY — including the Chesterton–Lewis editorial lens
+            2. Read `.claude/weekly-research-pipeline.md`, `BRAND_GUIDE.md`,
+               `.claude/skills/no-ai-slop/SKILL.md`, and `.claude/skills/no-ai-slop/eval.md`
+               and follow them EXACTLY — including the Chesterton–Lewis editorial lens
                (latent, never preached) and the anti-fabrication guardrails.
             3. CRITICAL: never invent studies, statistics, sample sizes, or effect
                sizes. Every specific claim must map to a real source you found via
@@ -75,8 +76,9 @@ jobs:
             4. Pick ONE specific topic NOT already covered in `src/content/blog/`.
                Write a new, fully-cited Markdown article there, matching the schema
                in `src/content/config.ts`. Set `pubDate` to the upcoming Monday.
-            5. Run `npm run build` — it MUST pass (frontmatter is schema-validated).
-               Fix any errors before continuing.
+            5. Run `npm run lint:copy` and `npm run build` — BOTH MUST pass
+               (no-ai-slop lint + Zod frontmatter schema validation). Fix any
+               errors or eval.md failures before continuing.
             6. Commit, push the branch, and open a pull request against `main` using
                `gh pr create`. The PR body must list every source used and a
                one-line credibility check confirming each specific claim is backed by

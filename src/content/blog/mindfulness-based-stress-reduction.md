@@ -235,4 +235,4 @@ Remember: Mindfulness is a skill developed through practice, not a product consu
 
 ---
 
-*Mindfulness has been co-opted by wellness culture and corporate productivity mandates. But beneath the commercialization lies a robust, evidence-based practice that can genuinely shift your relationship with stress, thoughts, and difficult emotions. The question is whether you're willing to do the unglamorous, disciplined work of actually practicing.*
+*Mindfulness has been co-opted by wellness culture and corporate productivity mandates. But beneath the commercialization lies a grounded, evidence-based practice that can genuinely shift your relationship with stress, thoughts, and difficult emotions. The question is whether you're willing to do the unglamorous, disciplined work of actually practicing.*
