@@ -21,6 +21,7 @@ interface Props {
     article?: boolean;
     publishedTime?: string;
     author?: string;
+    noindex?: boolean;
 }
 
 const {
@@ -30,7 +31,8 @@ const {
     imageAlt = "Florecer Mind - Where Research Blooms into Wisdom",
     article = false,
     publishedTime,
-    author
+    author,
+    noindex = false
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -48,6 +50,7 @@ const fullTitle = title.includes('Florecer Mind') ? title : `${title} - Florecer
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        {noindex && <meta name="robots" content="noindex, nofollow" />}
 
         <!-- Canonical URL -->
         <link rel="canonical" href={canonicalURL} />
@@ -56,6 +59,7 @@ const fullTitle = title.includes('Florecer Mind') ? title : `${title} - Florecer
         <link rel="alternate" type="application/rss+xml" title="Florecer Mind RSS Feed" href="/rss.xml" />
 
         <!-- Open Graph / Social Media -->
+        <meta property="og:locale" content="en_US" />
         <meta property="og:type" content={article ? "article" : "website"} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />

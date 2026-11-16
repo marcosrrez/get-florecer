@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import InteractiveGlossary from '../components/InteractiveGlossary.astro';
 import OrbitMnemonicMedium from '../components/OrbitMnemonicMedium.astro';
+import { GLOSSARY } from '../data/glossary';
 
 const title = "The Embodied Soul & The Developing Brain - Florecer Mind";
 const description = "A dedicated research series on the Science of Learning, Executive Function, Grit, and Child Development for parents and counselors, written in the spirit of C.S. Lewis.";
@@ -17,6 +18,31 @@ const readingTime = (body: string) =>
 
 const formatDate = (d: Date) =>
     d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://getflorecer.com';
+const learningStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'CreativeWorkSeries',
+            name: 'The Embodied Soul & The Developing Brain',
+            description,
+            url: `${siteUrl}/learning/`,
+            publisher: { '@type': 'Organization', name: 'Florecer Mind', url: siteUrl }
+        },
+        {
+            '@type': 'DefinedTermSet',
+            name: 'Florecer Mind Concept Lexicon',
+            description: 'Neuroscience, learning science, and child development concepts explained with plain-English definitions and practical examples.',
+            url: `${siteUrl}/learning/?tab=lexicon`,
+            hasDefinedTerm: GLOSSARY.map((item) => ({
+                '@type': 'DefinedTerm',
+                name: item.term,
+                description: item.definition
+            }))
+        }
+    ]
+};
 ---
 
 <Layout title={title} description={description}>
@@ -167,4 +193,5 @@ const formatDate = (d: Date) =>
             })();
         </script>
     </div>
+    <script type="application/ld+json" set:html={JSON.stringify(learningStructuredData)} />
 </Layout>
