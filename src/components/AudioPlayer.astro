@@ -106,6 +106,46 @@ const { audioUrl, title, author = 'Florecer Mind' } = Astro.props;
         <span class="duration-time text-[11px] font-mono text-neutral-500 w-9 shrink-0">--:--</span>
       </div>
     </div>
+
+    <!-- Floating Apple-style Frosted Glass Mini-Player (appears when scrolling while active) -->
+    <div
+      class="mini-player hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[min(30rem,calc(100vw-1.5rem))] rounded-[16px] bg-[#FAFAF9]/90 backdrop-blur-xl border border-neutral-200/90 shadow-xl px-3.5 py-2.5 font-sans"
+      role="region"
+      aria-label="Floating audio mini-player"
+    >
+      <div class="flex items-center justify-between gap-2.5">
+        <button
+          type="button"
+          class="mini-play-btn flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-[#FAFAF9] shadow-xs transition-transform active:scale-95"
+          aria-label="Play or pause narration"
+        >
+          <svg class="mini-play-icon h-4 w-4 translate-x-0.5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+          <svg class="mini-pause-icon hidden h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>
+        </button>
+        <div class="min-w-0 flex-1">
+          <p class="truncate text-xs font-semibold text-neutral-900 m-0">{title}</p>
+          <p class="mini-time text-[11px] font-mono text-neutral-500 m-0">0:00</p>
+        </div>
+        <button
+          type="button"
+          class="mini-rewind-btn inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] text-neutral-600 hover:bg-neutral-200/60 hover:text-primary transition-colors"
+          aria-label="Rewind 15 seconds"
+          title="Rewind 15s"
+        >
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.334 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="mini-close-btn inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] text-neutral-500 hover:bg-neutral-200/60 hover:text-neutral-900 transition-colors"
+          aria-label="Dismiss mini-player"
+          title="Dismiss"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
   </div>
 )}
 
@@ -181,6 +221,33 @@ const { audioUrl, title, author = 'Florecer Mind' } = Astro.props;
       const currentTimeEl = player.querySelector<HTMLElement>('.current-time');
       const durationTimeEl = player.querySelector<HTMLElement>('.duration-time');
       const waveform = player.querySelector<HTMLElement>('.waveform-indicator');
+      const miniPlayer = player.querySelector<HTMLElement>('.mini-player');
+      const miniPlayBtn = player.querySelector<HTMLButtonElement>('.mini-play-btn');
+      const miniPlayIcon = player.querySelector<SVGElement>('.mini-play-icon');
+      const miniPauseIcon = player.querySelector<SVGElement>('.mini-pause-icon');
+      const miniTimeEl = player.querySelector<HTMLElement>('.mini-time');
+      const miniRewindBtn = player.querySelector<HTMLButtonElement>('.mini-rewind-btn');
+      const miniCloseBtn = player.querySelector<HTMLButtonElement>('.mini-close-btn');
+      let hasStarted = false;
+      let miniDismissed = false;
+      let inlineVisible = true;
+
+      function syncMiniVisibility() {
+        if (!miniPlayer) return;
+        const show = hasStarted && !inlineVisible && !miniDismissed;
+        miniPlayer.classList.toggle('hidden', !show);
+      }
+
+      if ('IntersectionObserver' in window && miniPlayer) {
+        const obs = new IntersectionObserver(
+          entries => {
+            inlineVisible = entries[0]?.isIntersecting ?? true;
+            syncMiniVisibility();
+          },
+          { threshold: 0.1 }
+        );
+        obs.observe(player);
+      }
 
       if (!audio || !playBtn || !slider || !currentTimeEl || !durationTimeEl) return;
 
@@ -224,9 +291,12 @@ const { audioUrl, title, author = 'Florecer Mind' } = Astro.props;
 
       function updatePlayState(isPlaying: boolean) {
         if (isPlaying) {
+          hasStarted = true;
           playBtn.setAttribute('data-state', 'playing');
           playIcon?.classList.add('hidden');
           pauseIcon?.classList.remove('hidden');
+          miniPlayIcon?.classList.add('hidden');
+          miniPauseIcon?.classList.remove('hidden');
           waveform?.classList.add('waveform-playing');
           waveform?.classList.remove('opacity-40');
           if ('mediaSession' in navigator) {
@@ -236,12 +306,15 @@ const { audioUrl, title, author = 'Florecer Mind' } = Astro.props;
           playBtn.setAttribute('data-state', 'paused');
           playIcon?.classList.remove('hidden');
           pauseIcon?.classList.add('hidden');
+          miniPlayIcon?.classList.remove('hidden');
+          miniPauseIcon?.classList.add('hidden');
           waveform?.classList.remove('waveform-playing');
           waveform?.classList.add('opacity-40');
           if ('mediaSession' in navigator) {
             navigator.mediaSession.playbackState = 'paused';
           }
         }
+        syncMiniVisibility();
       }
 
       // Play/Pause toggle
@@ -266,6 +339,15 @@ const { audioUrl, title, author = 'Florecer Mind' } = Astro.props;
       // Rewind 15s
       rewindBtn?.addEventListener('click', () => {
         audio.currentTime = Math.max(0, audio.currentTime - 15);
+      });
+
+      miniPlayBtn?.addEventListener('click', () => playBtn.click());
+      miniRewindBtn?.addEventListener('click', () => {
+        audio.currentTime = Math.max(0, audio.currentTime - 15);
+      });
+      miniCloseBtn?.addEventListener('click', () => {
+        miniDismissed = true;
+        syncMiniVisibility();
       });
 
       // Speed toggle
@@ -296,7 +378,11 @@ const { audioUrl, title, author = 'Florecer Mind' } = Astro.props;
         if (!isDragging && audio.duration && isFinite(audio.duration)) {
           const progress = (audio.currentTime / audio.duration) * 100;
           slider.value = progress.toString();
-          currentTimeEl.textContent = formatTime(audio.currentTime);
+          const formatted = formatTime(audio.currentTime);
+          currentTimeEl.textContent = formatted;
+          if (miniTimeEl) {
+            miniTimeEl.textContent = `${formatted} / ${formatTime(audio.duration)}`;
+          }
         }
       });
 

@@ -50,15 +50,16 @@ const categories = [...new Set(GLOSSARY.map((item) => item.category))];
     </section>
 )}
 
-<!-- Interactive Concept Popover Modal -->
+<!-- Interactive Concept Popover / iOS Bottom Sheet -->
 <div
     id="glossaryModalBackdrop"
-    class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden items-center justify-center p-4 sm:p-6"
+    class="fixed inset-0 z-50 bg-black/45 backdrop-blur-xs hidden items-end sm:items-center justify-center p-0 sm:p-6"
     role="dialog"
     aria-modal="true"
     aria-labelledby="glossaryModalTitle"
 >
-    <div class="bg-[#FAFAF9] border border-neutral-200/90 rounded-[20px] max-w-xl w-full max-h-[86vh] overflow-y-auto shadow-2xl p-6 sm:p-8 relative font-sans">
+    <div class="bg-[#FAFAF9] border-t sm:border border-neutral-200/90 rounded-t-[24px] sm:rounded-[20px] max-w-xl w-full max-h-[85vh] overflow-y-auto shadow-2xl px-6 pt-3 pb-7 sm:p-8 relative font-sans">
+        <div class="sm:hidden w-10 h-1 rounded-full bg-neutral-300 mx-auto mb-4" aria-hidden="true"></div>
         <button
             type="button"
             id="glossaryModalClose"

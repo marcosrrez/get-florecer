@@ -1,0 +1,22 @@
+{
+  "name": "Florecer Mind",
+  "short_name": "Florecer",
+  "description": "Where Research Blooms into Wisdom. Evidence-based insights from counseling, neuroscience, and cognitive science.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF9",
+  "theme_color": "#2F5233",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

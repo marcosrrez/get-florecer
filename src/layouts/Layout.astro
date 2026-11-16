@@ -82,6 +82,11 @@ const fullTitle = title.includes('Florecer Mind') ? title : `${title} - Florecer
 
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" sizes="512x512" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="theme-color" content="#2F5233" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Florecer Mind" />
         <link rel="preload" as="font" type="font/woff2" href={interFont400} crossorigin />
         <link rel="preload" as="font" type="font/woff2" href={interFont600} crossorigin />
         <link rel="preload" as="font" type="font/woff2" href={crimsonFont400} crossorigin />
@@ -95,5 +100,27 @@ const fullTitle = title.includes('Florecer Mind') ? title : `${title} - Florecer
                 <Footer />
             </div>
         </div>
+        <script is:inline>
+            (function () {
+                if (typeof navigator === 'undefined' || !navigator.sendBeacon) return;
+                if (window.location.pathname.startsWith('/instagram')) return;
+                var start = Date.now();
+                var sent = false;
+                function sendStats() {
+                    if (sent) return;
+                    sent = true;
+                    var seconds = Math.round((Date.now() - start) / 1000);
+                    var blob = new Blob(
+                        [JSON.stringify({ path: window.location.pathname, duration: seconds })],
+                        { type: 'application/json' }
+                    );
+                    navigator.sendBeacon('/api/analytics', blob);
+                }
+                window.addEventListener('pagehide', sendStats);
+                document.addEventListener('visibilitychange', function () {
+                    if (document.visibilityState === 'hidden') sendStats();
+                });
+            })();
+        </script>
     </body>
 </html>

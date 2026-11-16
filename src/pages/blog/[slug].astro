@@ -157,10 +157,19 @@ const structuredData = {
         />
 
         <!-- Slim Mnemonic Medium control bar -->
-        <div class="mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-sans text-neutral-500 border-b border-neutral-200/60 pb-4">
+        <div class="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-sans text-neutral-500 border-b border-neutral-200/60 pb-3.5">
             <span class="text-neutral-400">✦</span>
-            <span>Interactive Essay: Tap <span class="underline decoration-dotted text-neutral-700">underlined terms</span> for definitions</span>
-            <span aria-hidden="true">·</span>
+            {(entry.data.category === 'Learning & Child Development' || entry.data.tags.includes('learning-science')) ? (
+                <>
+                    <span>Tap <span class="underline decoration-dotted text-neutral-700">underlined terms</span> for definitions</span>
+                    <span aria-hidden="true">·</span>
+                </>
+            ) : (
+                <>
+                    <span>Active recall</span>
+                    <span aria-hidden="true">·</span>
+                </>
+            )}
             <button type="button" id="orbit-slim-toggle" class="flex items-center gap-1.5 text-neutral-600 hover:text-primary transition-colors">
                 <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block" id="orbit-slim-dot"></span>
                 <span id="orbit-slim-label">Checkpoints: On</span>
