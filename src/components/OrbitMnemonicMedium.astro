@@ -114,6 +114,7 @@ const serializedPrompts = JSON.stringify(ORBIT_PROMPTS);
 
 <script is:inline define:vars={{ serializedPrompts, mode, currentSlug }}>
     (function () {
+        function initOrbit() {
         var ALL_PROMPTS = [];
         try {
             ALL_PROMPTS = JSON.parse(serializedPrompts);
@@ -642,6 +643,13 @@ const serializedPrompts = JSON.stringify(ORBIT_PROMPTS);
             }
 
             renderHubDeck(false);
+        }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initOrbit);
+        } else {
+            initOrbit();
         }
     })();
 </script>
