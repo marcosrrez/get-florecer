@@ -167,6 +167,8 @@ const categories = [...new Set(GLOSSARY.map((item) => item.category))];
 
         backdrop.classList.remove('hidden');
         backdrop.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('glossaryModalClose')?.focus();
     }
 
     function closeGlossaryModal() {
@@ -174,6 +176,7 @@ const categories = [...new Set(GLOSSARY.map((item) => item.category))];
         if (!backdrop) return;
         backdrop.classList.add('hidden');
         backdrop.classList.remove('flex');
+        document.body.style.overflow = '';
     }
 
     function initGlossaryInteractions() {
@@ -223,7 +226,7 @@ const categories = [...new Set(GLOSSARY.map((item) => item.category))];
                 if (['a', 'button', 'h1', 'h2', 'h3', 'h4', 'code', 'pre', 'script', 'style'].includes(tag)) {
                     return NodeFilter.FILTER_REJECT;
                 }
-                if (parent.closest('.glossary-inline-term')) {
+                if (parent.closest('.glossary-inline-term') || parent.closest('aside[aria-label*="Orbit"]')) {
                     return NodeFilter.FILTER_REJECT;
                 }
                 if (node.nodeValue && masterRegex.test(node.nodeValue)) {

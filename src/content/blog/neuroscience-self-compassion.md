@@ -4,7 +4,7 @@ description: "How self-compassion activates distinct neural networks, reduces th
 pubDate: 2024-02-05
 category: "Neuroscience"
 tags: ["self-compassion", "neuroscience", "emotional-regulation", "mental-health", "for-counselors"]
-author: "Florecer Mind Research Team"
+author: "The Florecer Team"
 
 sources:
   - title: "Self-compassion and reactions to unpleasant self-relevant events: the implications of treating oneself kindly"

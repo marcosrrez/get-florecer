@@ -4,7 +4,7 @@ description: "An umbrella review of 1,000+ trials found exercise rivals therapy 
 pubDate: 2026-07-21
 category: "Mental Health"
 tags: ["exercise", "depression", "anxiety", "daily-practices", "mental-health"]
-author: "Florecer Mind Research Team"
+author: "The Florecer Team"
 
 sources:
   - title: "Singh et al. (2023). Effectiveness of physical activity interventions for improving depression, anxiety and distress: an overview of systematic reviews. British Journal of Sports Medicine, 57(18), 1203–1209."

@@ -4,7 +4,7 @@ description: "Examining the clinical evidence behind Mindfulness-Based Stress Re
 pubDate: 2024-01-29
 category: "Daily Practices"
 tags: ["mindfulness", "stress-reduction", "daily-practices", "anxiety", "for-counselors"]
-author: "Florecer Mind Research Team"
+author: "The Florecer Team"
 
 sources:
   - title: "Mindfulness-based stress reduction for healthy individuals: A meta-analysis"

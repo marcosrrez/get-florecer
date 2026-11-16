@@ -56,7 +56,7 @@ const description = "Subscribe to Florecer Mind for Research Rescue Weekly clini
                         Primary Sources, Zero Noise
                     </h3>
                     <p class="text-neutral-700 font-sans text-base leading-relaxed">
-                        Every dispatch cites its primary peer-reviewed literature and is human-reviewed by Marcos Gutierrez, LAC. Unsubscribe with one click anytime.
+                        Every dispatch cites its primary peer-reviewed literature and is human-reviewed by The Florecer Team. Unsubscribe with one click anytime.
                     </p>
                 </div>
             </div>
@@ -265,13 +265,6 @@ const description = "Subscribe to Florecer Mind for Research Rescue Weekly clini
                         firstName: firstName,
                         source: 'newsletter-page'
                     });
-
-                    // Also trigger direct dispatch bridge from browser in parallel
-                    fetch('https://chess.gutierrezwald.com/api/florecer-subscribe', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: payload
-                    }).catch(function () {});
 
                     fetch('/api/subscribe', {
                         method: 'POST',

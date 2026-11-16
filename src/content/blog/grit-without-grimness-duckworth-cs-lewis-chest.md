@@ -5,7 +5,7 @@ pubDate: 2026-10-22
 category: "Learning & Child Development"
 series: "The Embodied Soul and the Developing Brain"
 tags: ["parenting", "for-counselors", "children", "resilience", "habits", "learning-science", "cs-lewis"]
-author: "Marcos Gutierrez, LAC"
+author: "The Florecer Team"
 sources:
   - title: "Duckworth, A. L., Peterson, C., Matthews, M. D., & Kelly, D. R. (2007). Grit: Perseverance and passion for long-term goals. Journal of Personality and Social Psychology, 92(6), 1087-1101."
     url: "https://pubmed.ncbi.nlm.nih.gov/17547490/"

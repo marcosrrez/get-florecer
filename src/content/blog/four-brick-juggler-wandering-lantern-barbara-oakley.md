@@ -5,7 +5,7 @@ pubDate: 2026-10-21
 category: "Learning & Child Development"
 series: "The Embodied Soul and the Developing Brain"
 tags: ["parenting", "for-counselors", "children", "brain-health", "habits", "learning-science", "cs-lewis"]
-author: "Marcos Gutierrez, LAC"
+author: "The Florecer Team"
 sources:
   - title: "Cowan, N. (2001). The magical number 4 in short-term memory: A reconsideration of mental storage capacity. Behavioral and Brain Sciences, 24(1), 87-114."
     url: "https://pubmed.ncbi.nlm.nih.gov/11515286/"

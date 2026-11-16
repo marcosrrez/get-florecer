@@ -117,7 +117,7 @@ Florecer Mind intentionally uses two complementary ideas. Keep them in their lan
 The two metaphors are deliberate and complementary: *Florecer* ("to flourish") is the destination — research **blooming** into wisdom — and *Research Rescue Weekly* names the mechanism — **rescuing** valuable studies from academic obscurity so they can flourish in real lives. Do not swap them: the brand does not "rescue," and the newsletter is not called "Florecer Weekly."
 
 ### Contact Information
-- **Email**: marcos@getflorecer.com
+- **Email**: team@getflorecer.com
 - **Website**: https://getflorecer.com
 - **Instagram**: @getflorecermind
 - **Twitter/X**: @florecermind

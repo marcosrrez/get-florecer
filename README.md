@@ -8,7 +8,7 @@ Built with [Astro](https://astro.build/), styled with [Tailwind CSS](https://tai
 
 - **Live site:** https://getflorecer.com
 - **Newsletter:** Research Rescue Weekly (evidence-based insights, every Monday)
-- **Contact:** marcos@getflorecer.com
+- **Contact:** team@getflorecer.com
 
 ## What this project is
 

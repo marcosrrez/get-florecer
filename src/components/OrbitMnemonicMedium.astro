@@ -427,7 +427,10 @@ const serializedPrompts = JSON.stringify(ORBIT_PROMPTS);
                 }
             }
 
-            window.removeEventListener('keydown', handleKeydown);
+            if (container._orbitKeydown) {
+                window.removeEventListener('keydown', container._orbitKeydown);
+            }
+            container._orbitKeydown = handleKeydown;
             window.addEventListener('keydown', handleKeydown);
 
             renderCurrent();

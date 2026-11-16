@@ -4,7 +4,7 @@ description: "The research on awe points to a strange kind of medicine: feeling 
 pubDate: 2026-07-22
 category: "Daily Practices"
 tags: ["awe", "wonder", "anxiety", "gratitude", "daily-practices"]
-author: "Florecer Mind Research Team"
+author: "The Florecer Team"
 
 sources:
   - title: "Sturm et al. (2020). Big smile, small self: Awe walks promote prosocial positive emotions in older adults. Emotion."

@@ -18,11 +18,10 @@ export async function GET(context: APIContext) {
             title: post.data.title,
             description: post.data.description,
             pubDate: post.data.pubDate,
-            author: post.data.author || 'Florecer Mind',
+            author: post.data.author || 'The Florecer Team',
             categories: [post.data.category, ...post.data.tags],
             link: `/blog/${post.slug}/`,
         })),
         customData: `<language>en-us</language>`,
-        stylesheet: '/rss-styles.xsl',
     });
 }

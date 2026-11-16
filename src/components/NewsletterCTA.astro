@@ -65,7 +65,7 @@
         <p data-cta-error hidden role="alert" class="text-sm text-red-700 font-medium"></p>
 
         <p class="text-xs text-neutral-500">
-            Evidence-based essays reviewed by Marcos Gutierrez, LAC. Zero spam. Unsubscribe anytime.
+            Evidence-based essays reviewed by The Florecer Team. Zero spam. Unsubscribe anytime.
         </p>
     </div>
 </aside>
@@ -108,12 +108,6 @@
                     email: email,
                     source: window.location.pathname || 'article-cta'
                 });
-
-                fetch('https://chess.gutierrezwald.com/api/florecer-subscribe', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: payload
-                }).catch(function () {});
 
                 fetch('/api/subscribe', {
                     method: 'POST',

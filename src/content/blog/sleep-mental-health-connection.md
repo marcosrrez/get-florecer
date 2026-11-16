@@ -4,7 +4,7 @@ description: "How quality sleep influences anxiety, depression, and emotional re
 pubDate: 2024-01-22
 category: "Mental Health"
 tags: ["sleep", "mental-health", "anxiety", "depression", "daily-practices"]
-author: "Florecer Mind Research Team"
+author: "The Florecer Team"
 
 sources:
   - title: "Sleep and mental health in undergraduate students with generally healthy sleep habits"

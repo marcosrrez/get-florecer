@@ -5,7 +5,7 @@ pubDate: 2026-10-20
 category: "Learning & Child Development"
 series: "The Embodied Soul and the Developing Brain"
 tags: ["parenting", "for-counselors", "children", "sleep", "brain-health", "habits", "learning-science", "cs-lewis"]
-author: "Marcos Gutierrez, LAC"
+author: "The Florecer Team"
 sources:
   - title: "Diamond, A. (2013). Executive Functions. Annual Review of Psychology, 64, 135-168."
     url: "https://pubmed.ncbi.nlm.nih.gov/23020641/"

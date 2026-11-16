@@ -124,7 +124,7 @@ export const GLOSSARY: GlossaryEntry[] = [
       "parenting"
     ],
     "definition": "As defined by neuroscientist Adele Diamond, the three core mental skills governed by the prefrontal cortex: (1) Inhibitory Control (resisting distractions and impulses), (2) Working Memory (holding and manipulating information in mind), and (3) Cognitive Flexibility (switching perspectives or adapting to change).",
-    "illustration": "If a child's passions and appetites are a team of spirited horses, Executive Functions are the reins, the bit, and the driver's steady hands. Even the finest horses willbolt into the ditch if the leather reins are frayed by seven hours of constant pulling.",
+    "illustration": "If a child's passions and appetites are a team of spirited horses, Executive Functions are the reins, the bit, and the driver's steady hands. Even the finest horses will bolt into the ditch if the leather reins are frayed by seven hours of constant pulling.",
     "example": "At home: Sitting in a classroom line, raising a hand before speaking, and ignoring a classmate's tapping pencil all drain the same Executive Function tank that homework requires later that evening.",
     "related": [
       "Dorsolateral Prefrontal Cortex",

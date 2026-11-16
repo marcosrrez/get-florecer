@@ -184,6 +184,10 @@ const { audioUrl, title, author = 'Florecer Mind' } = Astro.props;
 
       if (!audio || !playBtn || !slider || !currentTimeEl || !durationTimeEl) return;
 
+      audio.addEventListener('error', () => {
+        player.hidden = true;
+      });
+
       const title = player.dataset.title || 'Florecer Mind Essay';
       const author = player.dataset.author || 'Florecer Mind';
 

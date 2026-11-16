@@ -19,8 +19,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 // Editorial metadata
-const reviewer = 'Marcos Gutierrez';
-const reviewerCredential = 'LAC'; // Licensed Associate Counselor
+const reviewer = 'The Florecer Team';
 const readingTime = Math.max(1, Math.round(entry.body.split(/\s+/).filter(Boolean).length / 200));
 const sourceCount = entry.data.sources?.length ?? 0;
 const formatDate = (d: Date) =>
@@ -41,9 +40,8 @@ const structuredData = {
         url: Astro.site
     },
     editor: {
-        '@type': 'Person',
-        name: reviewer,
-        jobTitle: 'Licensed Associate Counselor'
+        '@type': 'Organization',
+        name: reviewer
     },
     publisher: {
         '@type': 'Organization',
@@ -67,7 +65,7 @@ const structuredData = {
     description={entry.data.description}
     article={true}
     publishedTime={entry.data.pubDate.toISOString()}
-    author={entry.data.author || "Florecer Mind Research Team"}
+    author={entry.data.author || "The Florecer Team"}
     image={entry.data.image || "/og-default.png"}
     imageAlt={`${entry.data.title} - Florecer Mind`}
 >
@@ -88,9 +86,7 @@ const structuredData = {
 
             <!-- Byline & meta -->
             <div class="flex flex-wrap items-center gap-x-3 gap-y-1 article-meta pb-6 border-b border-neutral-200">
-                <span>By <span class="font-medium text-neutral-800">Florecer Mind</span></span>
-                <span aria-hidden="true">·</span>
-                <span>Reviewed by <span class="font-medium text-neutral-800">{reviewer}, {reviewerCredential}</span></span>
+                <span>By <span class="font-medium text-neutral-800">{reviewer}</span></span>
                 <span aria-hidden="true">·</span>
                 <time datetime={entry.data.pubDate.toISOString()}>{formatDate(entry.data.pubDate)}</time>
                 <span aria-hidden="true">·</span>
@@ -121,9 +117,9 @@ const structuredData = {
                 <span id="orbit-slim-label">Checkpoints: On</span>
             </button>
             <span aria-hidden="true">·</span>
-            <details class="inline relative">
+            <details class="inline relative" id="orbit-how-it-works">
                 <summary class="cursor-pointer list-none text-neutral-500 hover:text-primary transition-colors">How it works ⓘ</summary>
-                <div class="absolute z-10 mt-1 max-w-xs p-4 bg-white border border-neutral-200/80 rounded-xl shadow-lg text-xs text-neutral-600 leading-relaxed font-sans">
+                <div class="absolute left-0 sm:left-auto sm:right-0 z-20 mt-2 w-72 max-w-[calc(100vw-2rem)] p-4 bg-white border border-neutral-200/80 rounded-xl shadow-lg text-xs text-neutral-600 leading-relaxed font-sans">
                     This essay uses the <strong class="text-neutral-800">Mnemonic Medium</strong> (Andy Matuschak): underlined terms open vocabulary definitions, and spaced-repetition checkpoints are injected at section breaks. Your recall intervals are saved locally so concepts enter long-term memory.
                 </div>
             </details>
