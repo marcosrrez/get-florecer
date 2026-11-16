@@ -5,7 +5,16 @@ export const prerender = false;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async ({ request }) => {
+    const syncToken = import.meta.env.SUBSCRIBE_SYNC_TOKEN || process.env.SUBSCRIBE_SYNC_TOKEN;
+    const authHeader = request.headers.get('authorization') || '';
+    if (!syncToken || authHeader !== `Bearer ${syncToken}`) {
+        return new Response(
+            JSON.stringify({ ok: false, error: 'Unauthorized' }),
+            { status: 401, headers: { 'Content-Type': 'application/json' } }
+        );
+    }
+
     try {
         const store = getStore('subscribers');
         const listResult = await store.list();
